@@ -7,35 +7,17 @@ public class Main7 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int[] arr = new int[28];
+		int[] hash_arr = new int[30];
+		Arrays.fill(hash_arr, 0);
 		
 		for(int i = 0; i < 28; i++) {
-			arr[i] = sc.nextInt();
+			int n = sc.nextInt();
+			hash_arr[n-1]++;
 		}
 		
-		Arrays.sort(arr);
-		int check = 0;
-		
-		if(arr[0] != 1) {
-			check++;
-			System.out.println(1);
-		}
-		
-		for(int j = 0; j < 27; j++) {
-			if(arr[j] != arr[j+1]-1) {
-				System.out.println(arr[j]+1);
-				check += 1;
-			}
-		}
-		
-		if(check == 1) {
-			if(arr[27] == 29) {
-				System.out.println(30);
-			}else {
-				System.out.println(2);
-			}
-		}else if(check == 0) {
-			System.out.println(29 + "\n" + 30);
+		for(int j = 0; j < 30; j++) {
+			if(hash_arr[j] == 0)
+				System.out.println(j+1);
 		}
 		
 		sc.close();
