@@ -3,7 +3,7 @@ package p199;
 /*
  * 날짜 : 2025.07.18.
  * 이름 : 강민철
- * 내용 : 교제 p199 this()로 다른 생성자 호출 실습하기
+ * 내용 : 교재 p199 this()로 다른 생성자 호출 실습하기
  */
 public class Book {
 	String title;

@@ -1,5 +1,10 @@
 package p259;
 
+/*
+ * 날짜 : 2025.07.18.
+ * 이름 : 강민철
+ * 내용 : 교재 p259 예제 5-1 실습
+ */
 class Point {
 	private int x, y;
 	public void set(int x, int y) {

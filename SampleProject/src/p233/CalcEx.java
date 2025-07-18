@@ -1,5 +1,10 @@
 package p233;
 
+/*
+ * 날짜 : 2025.07.19.
+ * 이름 : 강민철
+ * 내용 : 교재 p233 예제 4-11 실습
+ */
 class Calc {
 	public static int abs(int a) { return a>0?a:-a; }
 	public static int max(int a, int b) { return (a>b)?a:b; }

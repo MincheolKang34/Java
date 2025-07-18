@@ -1,5 +1,10 @@
 package p273;
 
+/*
+ * 날짜 : 2025.07.18.
+ * 이름 : 강민철
+ * 내용 : 교재 p273 예제 5-3 실습
+ */
 class Point {
 	private int x, y;
 	public Point() {

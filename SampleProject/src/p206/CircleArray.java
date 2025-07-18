@@ -1,5 +1,10 @@
 package p206;
 
+/*
+ * 날짜 : 2025.07.18.
+ * 이름 : 강민철
+ * 내용 : 교재 p205 예제 4-6 실습
+ */
 class Circle {
 	int radius;
 	public Circle(int radius) {
