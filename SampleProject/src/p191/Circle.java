@@ -1,5 +1,10 @@
 package p191;
 
+/*
+ * 날짜 : 2025.07.18.
+ * 이름 : 강민철
+ * 내용 : 교제 p191 생성자 실습하기
+ */
 public class Circle {
 	int radius;
 	String name;
