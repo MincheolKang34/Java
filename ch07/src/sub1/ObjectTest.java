@@ -19,8 +19,17 @@ public class ObjectTest {
 		
 		// 객체 비교
 		if(a1 == a2)
-			System.out.println("a1과 a2가 같다.");
+			System.out.println("a1과 a2가 주소값 같다.");
 		else
-			System.out.println("a1과 a2가 다르다");
+			System.out.println("a1과 a2가 주소값 다르다");
+
+		if(a1.equals(a2))
+			System.out.println("a1과 a2 객체가 같다.");
+		else
+			System.out.println("a1과 a2 객체가 다르다");
+		
+		// 객체 해시값 확인
+		System.out.println("a1 해시값 : " + a1.hashCode());
+		System.out.println("a2 해시값 : " + a2.hashCode());
 	}
 }
