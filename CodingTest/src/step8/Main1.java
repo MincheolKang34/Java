@@ -13,8 +13,12 @@ public class Main1 {
 		
 		for(int i=0; i<n.length(); i++) {
 			if(Pattern.matches("[A-Z]?", ""+n.charAt(i)))
-				result = result*b + n.charAt(i) - 'A' + 10; 
+				result = result*b + n.charAt(i) - 'A' + 10;
+			else
+				result = result*b + Integer.parseInt(""+n.charAt(i));
 		}
+		
+		System.out.println(result);
 		
 		sc.close();
 	}
