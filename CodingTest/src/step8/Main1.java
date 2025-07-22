@@ -13,7 +13,7 @@ public class Main1 {
 		
 		for(int i=0; i<n.length(); i++) {
 			if(Pattern.matches("[A-Z]?", ""+n.charAt(i)))
-			result = result*b + 
+				result = result*b + n.charAt(i) - 'A' + 10; 
 		}
 		
 		sc.close();
