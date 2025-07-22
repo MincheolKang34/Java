@@ -1,5 +1,21 @@
 package step8;
 
-public class Main1 {
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
+public class Main1 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String n = sc.next();
+		int b = sc.nextInt();
+		int result = 0;
+		
+		for(int i=0; i<n.length(); i++) {
+			if(Pattern.matches("[A-Z]?", ""+n.charAt(i)))
+			result = result*b + 
+		}
+		
+		sc.close();
+	}
 }
