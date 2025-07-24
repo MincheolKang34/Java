@@ -24,9 +24,9 @@ public class Test03 {
 			System.out.print("비밀번호 : ");
 			String inputPw = sc.nextLine();
 			
-			if(!inputId.matches(userId)) {
+			if(!userId.equals(inputId)) {
 				throw new LoginException("아이디 틀림!");
-			}else if(!inputPw.matches(userPw)) {
+			}else if(!userPw.equals(inputPw)) {
 				throw new LoginException("비밀번호 틀림!");
 			}else {
 				System.out.println("로그인 성공!");
