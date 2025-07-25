@@ -3,6 +3,7 @@ package sub4;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /*
@@ -24,8 +25,13 @@ public class TransactionTest {
 		final String USER = "bank";
 		final String PASS = "1234";
 		
+		Connection conn = null;
+		
 		try {
-			Connection conn = DriverManager.getConnection(HOST, USER, PASS);
+			conn = DriverManager.getConnection(HOST, USER, PASS);
+			
+			// 자동 커밋 해제(트랜잭션 시작)
+			conn.setAutoCommit(false);
 			
 			String sql1 = "UPDATE ACCOUNT SET ACC_BALANCE = ACC_BALANCE - 10000 WHERE ACC_CID=?";
 			String sql2 = "UPDATE ACCOUNT SET ACC_BALANCE = ACC_BALANCE + 10000 WHERE ACC_CID=?";
@@ -45,6 +51,8 @@ public class TransactionTest {
 			
 			psmt2.executeUpdate();
 			
+			conn.commit(); // 트랜잭션 작업 확정(트랜잭션 실행)
+			
 			psmt1.close();
 			psmt2.close();
 			conn.close();
@@ -52,6 +60,14 @@ public class TransactionTest {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			try {
+				// 트랜잭션 작업 취소
+				conn.rollback();
+				
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 		}
 		
 		System.out.println("프로그램 종료...");
