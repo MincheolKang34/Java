@@ -61,7 +61,8 @@ public class BankApp {
 	public void listAccounts() {
 		System.out.println("------------------- 계좌목록 -------------------");
 		for(Account account : accounts)
-			System.out.printf("%s %s %d\n", account.getAno(), account.getOwner(), account.getBalanace());
+			System.out.printf("%s %s %d\n", account.getAno(), account.getOwner(), 
+					account.getBalanace());
 	}
 	
 	public void depositAccount() {
@@ -70,17 +71,12 @@ public class BankApp {
 		String ano = scanner.next();
 		System.out.print("예금액: ");
 		int balance = scanner.nextInt();
-		boolean exist = false;
+		Account account = findAccount(ano);
 		
-		for(Account account : accounts) {
-			if(account.getAno() == ano) {
-				account.setBalanace(account.getBalanace() + balance);
-				System.out.println("결과: 예금이 성공되었습니다.");
-				exist = true;
-			}
-		}
-		
-		if(!exist)
+		if(account != null) {
+			account.setBalanace(account.getBalanace() + balance);
+			System.out.println("결과: 예금이 성공되었습니다.");
+		}else
 			System.out.println("결과: 계좌가 없습니다.");
 	}
 	
@@ -90,30 +86,23 @@ public class BankApp {
 		String ano = scanner.next();
 		System.out.print("출금액: ");
 		int balance = scanner.nextInt();
-		boolean exist = false;
+		Account account = findAccount(ano);
 		
-		for(Account account : accounts) {
-			if(account.getAno() == ano) {
-				account.setBalanace(account.getBalanace() - balance);
-				System.out.println("결과: 출금이 성공되었습니다.");
-				exist = true;
-			}
-		}
-		
-		if(!exist)
+		if(account != null) {
+			account.setBalanace(account.getBalanace() - balance);
+			System.out.println("결과: 출금이 성공되었습니다.");
+		}else
 			System.out.println("결과: 계좌가 존재하지 않습니다.");
 	}
 	
-	public Account findAccount(String name) {
-		for(Account account : accounts)
+	public Account findAccount(String ano) {
+		for(Account account : accounts) {
 			// 고객 소유의 계좌가 존재할 경우 계좌 객체 반환
-			if(account.getOwner() == name) {
-				System.out.println(name + "님 소유의 계좌번호는 " + account.getAno() + "입니다.");
-				System.out.println("잔고는 " + account.getBalanace() + "원 입니다.");
+			if(account.getAno().equals(ano)) {
 				return account;
 			}
+		}
 		// 고객 소유의 계좌가 존재하지 않을 경우 null 값 반환
-		System.out.println(name + "님 소유의 계좌가 존재하지 않습니다.");
 		return null;
 	}
 }
