@@ -23,6 +23,6 @@ public class Doctor {
 	@Override
 	public String toString() {
 		return ("의사: " + name + "(ID: " + id + ", 전문분야: " + special + ")\n담당 환자 목록:\n" 
-				+ patients).replace("[P","- P").replace(", P", "\n- P").replace("]]","]");
+				+ patients).replace("[P","- P").replace(", P", "\n- P").replace("]]","]\n");
 	}
 }
