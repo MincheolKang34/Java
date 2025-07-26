@@ -17,10 +17,12 @@ public class ShoppingMall {
 	
 	public void addCustomer(Customer customer) {
 		customers.add(customer);
-		customerOrders.put(customer.getUid(), orders);
+		List<Order> cOrders = new ArrayList<>();
+		customerOrders.put(customer.getUid(), cOrders);
 	}
 	
 	public void addOrder(Order order) {
+		orders.add(order);
 		for(Customer customer : customers) {
 			if(customer.equals(order.getCustomer())) {
 				customerOrders.get(customer.getUid()).add(order);
@@ -29,12 +31,6 @@ public class ShoppingMall {
 	}
 	
 	public List<Order> getOrders() {
-		List<Order> allOrders = new ArrayList<>();
-		for(Customer customer : customers) {
-			for(Order order : customerOrders.get(customer.getUid()))
-				allOrders.add(order);
-		}
-		
-		return allOrders;
+		return orders;
 	}
 }
